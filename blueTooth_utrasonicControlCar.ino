@@ -1,16 +1,16 @@
 #include <LiquidCrystal_I2C.h>  //Thu Vien Cho LCD co I2C
 #include <Servo.h>              //Thu vien Servo
-#include <NewPing.h>            //Thu vien cho Ultrasonic Sensor
+#include <NewPing.h>            //Thu vien cho Cam bien sieu am
 
-
-const int in1 = 4;
+// Gán giá trị chân của mạch điều khiển động cơ L298N vào chân điều khiển
+const int in1 = 4;             
 const int in2 = 5;
 const int in3 = 6;
 const int in4 = 7;
 const int buttonPin = 2;
 LiquidCrystal_I2C lcd(0x27,16,2);    //Dat ten lcd va Khai bao dia chi cua I2C So cot va hang
 
-boolean buttonState = HIGH;
+boolean buttonState = HIGH;     // Khai báo biến trạng thái nút nhấn ở kiểu boolean chỉ nhận giá trị true
 
 boolean debounceButton(boolean state)
 {
