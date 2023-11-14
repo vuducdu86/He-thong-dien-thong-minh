@@ -10,17 +10,17 @@ const int in4 = 7;
 const int buttonPin = 2;
 LiquidCrystal_I2C lcd(0x27,16,2);    //Dat ten lcd va Khai bao dia chi cua I2C So cot va hang
 
-boolean buttonState = HIGH;     // Khai báo biến trạng thái nút nhấn ở kiểu boolean chỉ nhận giá trị true
+boolean buttonState = HIGH;     // Khai báo biến trạng thái nút nhấn ở kiểu dữ liệu boolean chỉ nhận giá trị true
 
-boolean debounceButton(boolean state) // Khai báo dội phím nút nhấn kiểu boolean
+boolean debounceButton(boolean state) // Khai biến báo dội phím nút nhấn kiểu boolean
 {
   boolean stateNow=digitalRead(buttonPin);
-  if(state!=stateNow)
+  if(state!=stateNow) //Nếu trạng thái khác với trạng thái hiện tại là TRUE thì thực hiện
   {
-    delay(10);
-    stateNow=digitalRead(buttonPin);
+    delay(10); // trễ 10 mili giây
+    stateNow=digitalRead(buttonPin); // Trạng thái hiện tại của nút nhấn chính là trạng thái của chân 2 của Adruino
     }
-    return stateNow;
+    return stateNow; // Trả về trạng thái hiện tại của nút nhấn
   }
 
 int pressed = 0;
