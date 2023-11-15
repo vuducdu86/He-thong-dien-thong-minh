@@ -12,7 +12,7 @@ LiquidCrystal_I2C lcd(0x27,16,2);    //Dat ten lcd va Khai bao dia chi cua I2C S
 
 boolean buttonState = HIGH;     // Khai báo biến trạng thái nút nhấn ở kiểu dữ liệu boolean chỉ nhận giá trị true
 
-boolean debounceButton(boolean state) // Khai biến báo dội phím nút nhấn kiểu boolean
+boolean debounceButton(boolean state) // Khai báo biến dội phím nút nhấn kiểu boolean
 {
   boolean stateNow=digitalRead(buttonPin);
   if(state!=stateNow) //Nếu trạng thái khác với trạng thái hiện tại là TRUE thì thực hiện
