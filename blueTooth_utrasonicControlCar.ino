@@ -2,15 +2,15 @@
 #include <Servo.h>              //Thu vien Servo
 #include <NewPing.h>            //Thu vien cho Cam bien sieu am
 
-// Gán giá trị chân của mạch điều khiển động cơ L298N vào chân điều khiển
+// Gán giá trị chân của mạch điều khiển động cơ L298N vào chân của Vi điều khiển
 const int in1 = 4;             
 const int in2 = 5;
 const int in3 = 6;
 const int in4 = 7;
-const int buttonPin = 2;
-LiquidCrystal_I2C lcd(0x27,16,2);    //Dat ten lcd va Khai bao dia chi cua I2C So cot va hang
+const int buttonPin = 2; // Định nghĩa biến hằng buttonPin kết nối vào chân 2 trên Vi điều khiển
+LiquidCrystal_I2C lcd(0x27,16,2);  //Dat ten lcd va Khai bao dia chi cua I2C So cot va hang
 
-boolean buttonState = HIGH;     // Khai báo biến trạng thái nút nhấn ở kiểu dữ liệu boolean chỉ nhận giá trị true
+boolean buttonState = HIGH; // Khai báo biến trạng thái nút nhấn ở kiểu dữ liệu boolean chỉ nhận giá trị true
 
 boolean debounceButton(boolean state) // Khai báo biến dội phím nút nhấn kiểu boolean
 {
@@ -23,37 +23,37 @@ boolean debounceButton(boolean state) // Khai báo biến dội phím nút nhấ
     return stateNow; // Trả về trạng thái hiện tại của nút nhấn
   }
 
-int pressed = 0;
-int val;
-int cm = 0;
-int duration=0;
-int iterations=5;
-int distance = 0;
-int distanceRight = 0;
-int distanceLeft = 0;
+int pressed = 0; // nút nhấn đã được nhấn kiểu interger
+int val;         // value kiểu interger
+int cm = 0;      // khoảng cách đến vật cản kiểu interger, giá trị ban đâu là 0
+int duration=0;  // thời gian từ cảm biến đến vật cản
+int iterations=5;// số lần thực hiện gói ping
+int distance = 0;// khoảng cách từ cảm biến đến vật cản cả đi và về
+int distanceRight = 0; // khoảng cách phải từ cảm biến đến vật cản
+int distanceLeft = 0;  // khoảng cách trái từ cảm biến đến vật cản
 
-#define trigPin A0 //analog input 1
-#define echoPin A1 //analog input 2
-#define maxDistance 400
+#define trigPin A0 //Chân A0 kết nối vào chân trig trên cảm biến siêu âm
+#define echoPin A1 //Chân A1 kết nối vào chân echo trên cảm biến siêu âm
+#define maxDistance 400 // Khoảng cách tối đa cảm biến đo được
 
-NewPing sonar(trigPin, echoPin, maxDistance); //sensor function
-Servo servo; //our servo name is servo
+NewPing sonar(trigPin, echoPin, maxDistance); //Khởi tạo cảm biến siêu âm
+Servo servo; //Khởi tạo servo có tên là servo
 
 void setup()
 {
-  pinMode(in1, OUTPUT);
-  pinMode(in2, OUTPUT);
-  pinMode(in3, OUTPUT);
-  pinMode(in4, OUTPUT);
-  pinMode(buttonPin,INPUT_PULLUP);
-  Serial.begin(9600);
-  lcd.init();
-  lcd.backlight();
+  pinMode(in1, OUTPUT);//chân in1 trên module điều khiển động cơ là output
+  pinMode(in2, OUTPUT);//chân in2 trên module điều khiển động cơ là output
+  pinMode(in3, OUTPUT);//chân in3 trên module điều khiển động cơ là output
+  pinMode(in4, OUTPUT);//chân in4 trên module điều khiển động cơ là output
+  pinMode(buttonPin,INPUT_PULLUP); //chân 2 trên Vi điều khiển ở mode input có điện trở kéo
+  Serial.begin(9600); //Khởi tạo cổng serial
+  lcd.init();// khởi tạo lcd
+  lcd.backlight();//Chế độ màn hình tối
   
-  servo.attach(9); //our servo pin
+  servo.attach(9); //chân tín hiệu của servo kết nối vào chân 9 của Vi điều khiển
   
-  servo.write(87);
-  delay(2000);
+  servo.write(87); // Server quay 87 độ
+  delay(2000); // Delay 2 giây
 }
 
 void loop()
@@ -61,10 +61,10 @@ void loop()
 //  Serial.println("Press button to select control");
 //  lcd.setCursor(0,0);
 //  lcd.print("Bam nut de chon");
-  if(debounceButton(buttonState)== LOW && buttonState == HIGH)
+  if(debounceButton(buttonState)== LOW && buttonState == HIGH) // Gọi hàm dội phím nút nhấn có giá trị 0 và trạng thái nút nhấn được nhấn thì
   {
-    pressed++;    
-    buttonState=LOW;
+    pressed++;    // Biến ĐÃ NHẤN tăng lên 1 giá trị
+    buttonState=LOW;  //Trạng thái nút nhấn về 0
     }
     else if(debounceButton(buttonState) == HIGH && buttonState == LOW)
     {
