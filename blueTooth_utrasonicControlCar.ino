@@ -225,10 +225,10 @@ void moveForward()  //Chương trình con đi thẳng
   Serial.println("Move Forward");
   lcd.setCursor(0,1);
   lcd.print("Chay Toi        ");
-  digitalWrite(in1, HIGH);       // cho giá trị động cơ quay Tiến bên trái mức cao
-  digitalWrite(in2, LOW);        // cho giá trị động cơ quay Lùi bên trái mức thấp
-  digitalWrite(in3, HIGH);       // cho giá trị động cơ quay Tiến bên Phải mức cao
-  digitalWrite(in4, LOW);        // cho giá trị động cơ quay Lùi bên phải mức thấp
+  digitalWrite(in1, HIGH);       
+  digitalWrite(in2, LOW);        
+  digitalWrite(in3, HIGH);       
+  digitalWrite(in4, LOW);        
  }
 
 void moveBackward()   // Chương trình con đi lùi
@@ -236,68 +236,68 @@ void moveBackward()   // Chương trình con đi lùi
   Serial.println("Move Backward");
   lcd.setCursor(0,1);
   lcd.print("Chay Lui        ");
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);  
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, HIGH); 
+  digitalWrite(in1, LOW);       
+  digitalWrite(in2, HIGH);     
+  digitalWrite(in3, LOW);       
+  digitalWrite(in4, HIGH);      
  }
 
-void turnRight()
+void turnRight()    // Chương trình con rẽ phải
 {
   Serial.println("Turn Right");
   lcd.setCursor(0,1);
-  lcd.print("Queo Phai       ");
+  lcd.print("Re Phai       ");
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);  
   digitalWrite(in3, LOW);
   digitalWrite(in4, HIGH);
   }
 
-void turnLeft()
+void turnLeft()       // Chương trình con rẽ trái
 {
   Serial.println("Turn Left");
   lcd.setCursor(0,1);
-  lcd.print("Queo Trai       ");
+  lcd.print("Re Trai       ");
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH); 
   digitalWrite(in3, LOW);
   digitalWrite(in4, LOW); 
   }
 
-void moveStop()
+void moveStop()       //Chương trình con Dừng
 {
   Serial.println("Move Stop");
   lcd.setCursor(0,1);
-  lcd.print("Ngung           ");
+  lcd.print("Dung Lai           ");
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
   digitalWrite(in4, LOW);
   }
 
-void forwardRight()
+void forwardRight()     // Chương trình con Tiến Phải
 {
   Serial.println("Forward Right");
   lcd.setCursor(0,1);
-  lcd.print("Toi Phai        ");
+  lcd.print("Tien Phai        ");
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
   digitalWrite(in4, LOW);
   }
 
-void forwardLeft()
+void forwardLeft()       // Chương trình con Tiến trái
 {
   Serial.println("Forward Left");
   lcd.setCursor(0,1);
-  lcd.print("Toi Trai        ");
+  lcd.print("Tien Trai        ");
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   digitalWrite(in3, HIGH);
   digitalWrite(in4, LOW);
   }
 
-void backwardRight()
+void backwardRight()      //Chương trình con Lùi Phải
 {
   Serial.println("Backward Right");
   lcd.setCursor(0,1);
@@ -308,7 +308,7 @@ void backwardRight()
   digitalWrite(in4, HIGH);
   }
   
-void backwardLeft()
+void backwardLeft()       //Chương trình con Lùi trái
 {
   Serial.println("Backward Left");
   lcd.setCursor(0,1);
