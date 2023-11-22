@@ -1,4 +1,4 @@
-#include <LiquidCrystal_I2C.h>  //Thu Vien Cho LCD co I2C
+
 #include <Servo.h>              //Thu vien Servo
 #include <NewPing.h>            //Thu vien cho Cam bien sieu am
 
@@ -8,7 +8,7 @@ const int in2 = 5;
 const int in3 = 6;
 const int in4 = 7;
 const int buttonPin = 2; // Định nghĩa biến hằng buttonPin kết nối vào chân 2 trên Vi điều khiển
-LiquidCrystal_I2C lcd(0x27,16,2);  //Dat ten lcd va Khai bao dia chi cua I2C So cot va hang
+
 
 boolean buttonState = HIGH; // Khai báo biến trạng thái nút nhấn ở kiểu dữ liệu boolean chỉ nhận giá trị true
 
@@ -47,8 +47,8 @@ void setup()
   pinMode(in4, OUTPUT);//chân in4 trên module điều khiển động cơ là output
   pinMode(buttonPin,INPUT_PULLUP); //chân 2 trên Vi điều khiển ở mode input có điện trở kéo
   Serial.begin(9600); //Khởi tạo cổng serial
-  lcd.init();// khởi tạo lcd
-  lcd.backlight();//Chế độ màn hình tối
+  
+  
   
   servo.attach(9); //chân tín hiệu của servo kết nối vào chân 9 của Vi điều khiển
   
@@ -59,8 +59,8 @@ void setup()
 void loop()// Chương trình lặp chính
 {
 //  Serial.println("Press button to select control");
-//  lcd.setCursor(0,0);
-//  lcd.print("Bam nut de chon");
+
+
   if(debounceButton(buttonState)== LOW && buttonState == HIGH) // Gọi hàm dội phím nút nhấn có giá trị 0 và trạng thái nút nhấn được nhấn thì
   {
     pressed++;    // Biến ĐÃ NHẤN tăng lên 1 giá trị
@@ -72,27 +72,27 @@ void loop()// Chương trình lặp chính
       }
   if(pressed==0){                //Nếu chưa nhấn nút nhấn thì hiển thị Bấm nút để chọn
     Serial.println("Press button to select control");
-    lcd.setCursor(0,0);
-    lcd.print("Bam nut de chon");
+   
+    
   }
   if(pressed==1)                // Nếu nhấn lần 1 thì hiển thị Chương trình Xe tránh vật cản
   {
     Serial.println("Obstacle Advoiding Robot");
-    lcd.setCursor(0,0);
-    lcd.print("Xe Tranh Vat Can");
+    
+    
     obstacleAdvoiding();
     }
   if(pressed==2)                // Nếu nhấn lần 2 thì hiển thị chạy chương trình xe điều khiển bằng bluetooth
   {
     Serial.println("Bluetooth Control Car");
-    lcd.setCursor(0,0);
-    lcd.print("Xe Bluetooth    ");
+    
+    
     bluetoothCar();
   }
    if(pressed>=3)               // Nếu nhấn lần 3 thi xóa LCD, trở về trạng thái dừng
   {
     pressed=0;
-    lcd.clear();
+    
     }
  }
 
@@ -223,8 +223,8 @@ int lookLeft()  //Chương trình con " nhìn trái
 void moveForward()  //Chương trình con đi thẳng
 {
   Serial.println("Move Forward");
-  lcd.setCursor(0,1);
-  lcd.print("Chay Toi        ");
+  
+  
   digitalWrite(in1, HIGH);       
   digitalWrite(in2, LOW);        
   digitalWrite(in3, HIGH);       
@@ -234,8 +234,8 @@ void moveForward()  //Chương trình con đi thẳng
 void moveBackward()   // Chương trình con đi lùi
 {
   Serial.println("Move Backward");
-  lcd.setCursor(0,1);
-  lcd.print("Chay Lui        ");
+  
+  
   digitalWrite(in1, LOW);       
   digitalWrite(in2, HIGH);     
   digitalWrite(in3, LOW);       
@@ -245,8 +245,8 @@ void moveBackward()   // Chương trình con đi lùi
 void turnRight()    // Chương trình con rẽ phải
 {
   Serial.println("Turn Right");
-  lcd.setCursor(0,1);
-  lcd.print("Re Phai       ");
+  
+  
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);  
   digitalWrite(in3, LOW);
@@ -256,8 +256,8 @@ void turnRight()    // Chương trình con rẽ phải
 void turnLeft()       // Chương trình con rẽ trái
 {
   Serial.println("Turn Left");
-  lcd.setCursor(0,1);
-  lcd.print("Re Trai       ");
+  
+  
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH); 
   digitalWrite(in3, LOW);
@@ -267,8 +267,8 @@ void turnLeft()       // Chương trình con rẽ trái
 void moveStop()       //Chương trình con Dừng
 {
   Serial.println("Move Stop");
-  lcd.setCursor(0,1);
-  lcd.print("Dung Lai           ");
+ 
+  
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
@@ -278,8 +278,8 @@ void moveStop()       //Chương trình con Dừng
 void forwardRight()     // Chương trình con Tiến Phải
 {
   Serial.println("Forward Right");
-  lcd.setCursor(0,1);
-  lcd.print("Tien Phai        ");
+  
+  
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
@@ -289,8 +289,8 @@ void forwardRight()     // Chương trình con Tiến Phải
 void forwardLeft()       // Chương trình con Tiến trái
 {
   Serial.println("Forward Left");
-  lcd.setCursor(0,1);
-  lcd.print("Tien Trai        ");
+  
+  
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   digitalWrite(in3, HIGH);
@@ -300,8 +300,8 @@ void forwardLeft()       // Chương trình con Tiến trái
 void backwardRight()      //Chương trình con Lùi Phải
 {
   Serial.println("Backward Right");
-  lcd.setCursor(0,1);
-  lcd.print("Lui Phai        ");
+  
+  
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
@@ -311,8 +311,8 @@ void backwardRight()      //Chương trình con Lùi Phải
 void backwardLeft()       //Chương trình con Lùi trái
 {
   Serial.println("Backward Left");
-  lcd.setCursor(0,1);
-  lcd.print("Lui Trai        ");
+  
+  
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   digitalWrite(in3, LOW);
