@@ -1,9 +1,3 @@
-/*
- * Created by Lam Hong Duc
- * Date 20/11/2020)
- * Edited 13/12/2020 by Lam Hong Duc
- */
-
  #include <LiquidCrystal_I2C.h>   // add liquidcrystal library
 
  int leftSensor = 4;
