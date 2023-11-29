@@ -11,8 +11,8 @@ const int in2 = 6;
 const int in3 = 7;
 const int in4 = 8;
 const int buttonPin = 12; // Định nghĩa biến hằng buttonPin kết nối vào chân 12 trên Vi điều khiển
-const int ENA = 11;
-const int ENB = 13;
+const int ENA = 10;
+const int ENB = 11;
 const int leftSpeed = 150;
 const int rightSpeed = 150;
 
