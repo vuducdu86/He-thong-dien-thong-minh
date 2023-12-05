@@ -13,8 +13,8 @@ const int in4 = 8;
 const int buttonPin = 12; // Định nghĩa biến hằng buttonPin kết nối vào chân 12 trên Vi điều khiển
 const int ENA = 10;
 const int ENB = 11;
-const int leftSpeed = 150;
-const int rightSpeed = 150;
+const int leftSpeed = 255;
+const int rightSpeed = 255;
 
 boolean buttonState = HIGH; // Khai báo biến trạng thái nút nhấn ở kiểu dữ liệu boolean chỉ nhận giá trị true
 boolean debounceButton(boolean state) // Khai báo biến dội phím nút nhấn kiểu boolean
@@ -51,10 +51,10 @@ void setup()
   pinMode(rightSensor,INPUT);
   pinMode(ENA,OUTPUT);
   pinMode(ENB,OUTPUT);
-  pinMode(in1, OUTPUT);//chân in1 trên module điều khiển động cơ là output
-  pinMode(in2, OUTPUT);//chân in2 trên module điều khiển động cơ là output
-  pinMode(in3, OUTPUT);//chân in3 trên module điều khiển động cơ là output
-  pinMode(in4, OUTPUT);//chân in4 trên module điều khiển động cơ là output
+  pinMode(in1, OUTPUT);//chân in1 trên module điều khiển động cơ trái tiến
+  pinMode(in2, OUTPUT);//chân in2 trên module điều khiển động cơ trái lùi
+  pinMode(in3, OUTPUT);//chân in3 trên module điều khiển động cơ phải tiến
+  pinMode(in4, OUTPUT);//chân in4 trên module điều khiển động cơ phải lùi
   pinMode(buttonPin,INPUT_PULLUP); //chân 2 trên Vi điều khiển ở mode input có điện trở kéo
   Serial.begin(9600); //Khởi tạo cổng serial
   servo.attach(9); //chân tín hiệu của servo kết nối vào chân 9 của Vi điều khiển
