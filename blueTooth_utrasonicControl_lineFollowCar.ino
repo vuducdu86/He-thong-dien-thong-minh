@@ -60,6 +60,7 @@ void setup()
   servo.attach(9); //chân tín hiệu của servo kết nối vào chân 9 của Vi điều khiển
   servo.write(87); // Server quay 87 độ
   delay(2000); // Delay 2 giây
+  moveStop();
 }
 
 void loop()// Chương trình lặp chính
